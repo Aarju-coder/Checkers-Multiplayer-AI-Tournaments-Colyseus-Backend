@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+
+    div.block{
+      background-color: lightgrey;
+      width: 500px;
+      border: 15px solid green;
+      padding: 50px;
+      margin: 20px;
+    }
+    div.childblock{
+      background-color: lightgrey;
+      width: 300px;
+      border: 1px solid green;
+      padding: 50px;
+      margin: 20px;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    #gamePlay {
+      background-color: lightgrey;
+      width: 100%;
+      border: 15px solid green;
+      padding: 50px;
+      margin: 20px;
+    }
+
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    .greenColor {
+      background-color: rgb(132, 194, 132);
+    }
+
+    .disconnected {
+      background-color: rgb(199, 139, 124);
+    }
+
+    .yellowColor {
+      background-color: rgb(206, 204, 116);
+    }
+    .orangeColor {
+      background-color: rgb(201, 122, 31);
+    }
+    * {
+      box-sizing: border-box;
+    }
+
+  /* Create two equal columns that floats next to each other */
+  .column {
+    border: 1px solid #dddddd;
+    float: left;
+    width: 25%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  #main,#createRoomPage,#joinRoomPage,#lobby,#gamePlay{
+      display: none;
+    }
+  </style>
+  <script type="text/javascript" src="./js/colyseus.js"></script>
+  <script type="text/javascript" src="./js/server.js"></script>
+  <script type="text/javascript" src="./js/gameplay.js"></script>
+  <script type="text/javascript" src="./js/lobbyUIHandling.js"></script>
+  <script type="text/javascript" src="./js/gameUIHandling.js"></script>
+  <script type="text/javascript" src="./js/global.js"></script>
+</head>
+
+<body>
+
+  <div class = "block" id="main">
+    <button type="button" id="joinLobby">JOIN LOBBY</button>
+    <button type="button" id="createRoom">CREATE ROOM</button>
+    <button type="button" id="joinRoom">JOIN ROOM</button>
+    <button type="button" id="reconnect">RECONNECT</button>
+  </div>
+  <div class = "block" id="createRoomPage">
+    <h2>Room has been successfully created. <br>Room Id - 123456</h2>
+  </div>
+
+  <div class = "block" id="lobby">
+    <button type="button" id="startGame">START GAME</button>
+    <button type="button" id="leaveLobby">LEAVE LOBBY</button>
+  </div>
+  <div class = "block" id="gamePlay">
+   
+    <h1>GAME PLAY</h1>
+    <h3 id = "gameStatus">STATUS - WAITING</h3>
+    <button type="button" id="leaveGamePlay">LEAVE GAME</button><br><br>
+    <div id= "yourBidList">
+
+      <h2 id= "yourBidListHead">Your Bid</h2>
+      <button type="button" value = -1 onclick="GamePlay.sendBid(-1)">BLIND NIL</button>
+      <button type="button" value  = 0 onclick="GamePlay.sendBid(0)">NIL</button>
+      <button type="button" value  = 1 onclick="GamePlay.sendBid(1)">1</button>
+      <button type="button" value  = 2 onclick="GamePlay.sendBid(2)">2</button>
+      <button type="button" value  = 3 onclick="GamePlay.sendBid(3)">3</button>
+      <button type="button" value  = 4 onclick="GamePlay.sendBid(4)">4</button>
+      <button type="button" value  = 5 onclick="GamePlay.sendBid(5)">5</button>
+      <button type="button" value  = 6 onclick="GamePlay.sendBid(6)">6</button>
+      <button type="button" value  = 7 onclick="GamePlay.sendBid(7)">7</button>
+      <button type="button" value  = 8 onclick="GamePlay.sendBid(8)">8</button>
+      <button type="button" value  = 9 onclick="GamePlay.sendBid(9)">9</button>
+      <button type="button" value  = 10 onclick="GamePlay.sendBid(10)">10</button>
+      <button type="button" value  = 11 onclick="GamePlay.sendBid(11)">11</button>
+      <button type="button" value  = 12 onclick="GamePlay.sendBid(12)">12</button>
+      <button type="button" value  = 13 onclick="GamePlay.sendBid(13)">13</button>
+
+    </div>
+    <br><br>
+    <div id= "yourCardList">
+
+      <h2 id= "yourCardListHead">Your Cards</h2>
+
+    </div> -->
+    <br><br>
+
+    <div>
+      <h2>Your team points - <span id= "yourScore"> 300 </span></h2>
+      <h2>Opponent team points - <span id= "oppScore"> 300 </span> </h2>
+    </div>
+    <br><br> 
+    
+     <div class="row" id ="playerData">
+      <!-- <div class="column" class ="yellowColor">
+        <h2>Column 1</h2>
+        <p>Bid: 12</p>
+        <p>Hands won: 12</p>
+        <p>Card on Table: 12</p>-->
+      </div>
+     
+    </div>
+
+  </div>
+
+  <script>
+    window.onload = function(){
+
+      UI.buttons();
+      UI.mainPage();
+    }
+    
+  </script>
+
+</body>
+
+</html>

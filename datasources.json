@@ -1,0 +1,31 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "sudhani_whist",
+    "password": "3udhaN1!!@2021",
+    "name": "db",
+    "connector": "mysql",
+    "user": "root"
+  },
+  "EmailDataSource": {
+    "name": "EmailDataSource",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "SMTP",
+        "host": "smtp.gmail.com",
+        "secure": false,
+        "port": 587,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "garimabhasin16@gmail.com",
+          "pass": "iujdrvolomjwtxmh"
+        }
+      }
+    ]
+  }
+}
